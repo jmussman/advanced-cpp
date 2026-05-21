@@ -31,6 +31,8 @@
 1. Click on the *Run and Debug* tool in the left *Activity Bar*.
 1. Select *CxxTemplate: Debug Program* from the configuration dropdown list at the top.
 1. Click the run arrow to the left of the dropdown to build and run the program.
-1. Verify that it stops on the breakpoint.
+1. The program stops at the first line in the *main* function.
+    Use the *continue* button in the debug terminal to let the program continue.
+1. Verify the programs stops at the breakpoint on line 12.
 1. Continue execution to let the program finish running.
 
