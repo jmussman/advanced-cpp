@@ -1,16 +1,14 @@
-![Lab Banner](./.assets/images/application-development-banner.png)
+![Lab Banner](./.assets/images/banner-advanced-cpp-light.png#gh-light-mode-only)
+![Lab Banner](./.assets/images/banner-advanced-cpp-dark.png#gh-dark-mode-only)
 
-# Verify GitHub Codespace Access
+# Advanced C++
 
 ## Synopsis
 
-This repository only exists to verify access to GitHub Codespaces: that they may be created and connected to.
-It serves no other purpose and has no other files installed.
-Accessing a codespace from an enterprise computer or network may be blocked in order to prevent leakage.
-Starting and connecting to a codespace using this repository will prove (or disprove) that using a codespace is possible
-from the local computer.
+This repository contains the starter project for Advanced C++.
+After launching a GitHub Codespace the lab instructions will be available.
 
-## Testing the GitHub Codespace
+## Launching the GitHub Codespace
 
 Start on the **\<> Code** tab of this repository (or any that offers a codespace),
 look for the green **\<> Code** button and click it.
@@ -49,3 +47,5 @@ When a lab is finished the codespace should be deleted.
 GitHub has limits on the number of free codespaces that may be simultaneously created in an account, the amount of
 storage used by these codespaces, how many may be active at the same time, and the total number of "core hours"
 codespaces may use monthly in an account.
+The GitHub free personal account has 120 core hours per month.
+Two cores equals 60 hours per month.

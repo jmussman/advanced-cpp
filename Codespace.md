@@ -1,11 +1,9 @@
-![Lab Banner](./.assets/images/application-development-banner.png)
+![Lab Banner](./.assets/images/banner-advanced-cpp-light.png#gh-light-mode-only)
+![Lab Banner](./.assets/images/banner-advanced-cpp-dark.png#gh-dark-mode-only)
 
-Hey 👋
+# Lab Instructions
 
-Welcome to Github Codespaces, and congratulations! Since you are seeing this message, Github Codespaces is reachable from your computer.
-Follow these steps to shut down the test:
-
-1. In the other browser tab refresh the repository window.
-1. Click the \"Code\" button and select the \"Codespace\" tab.
-1. Use the delete option to remove this Codespace.
-1. Close this Codespace window.
+1. Open a terminal tab in VS Code.
+1. Run "cmake -Bbuild -H. -GNinga" to generate the build configuration for Ninja.
+1. Run "ninja" to build the project.
+1. Run "./CxxTemplate" to run the compiled application.
