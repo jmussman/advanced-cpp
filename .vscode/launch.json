@@ -2,43 +2,30 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "CxxTemplate: Run Program",
+            "name": "CxxTemplate: Run Program (Optimized)",
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceFolder}/build/CxxTemplate",
-            "args": [],
-            "stopAtEntry": false,
             "cwd": "${workspaceFolder}/build",
-            "environment": [],
-            "externalConsole": false,
-            // Setting MIMode to a blank value or avoiding engine triggers tells the platform to execute without hooks
             "MIMode": "",
-            "preLaunchTask": "CMake: Full Pipeline (Generate + Build)"
+            "preLaunchTask": "Pipeline: Build Release Target"
         },
         {
-            "name": "CxxTemplate: Debug in GDB",
+            "name": "CxxTemplate: Debug in GDB (Symbols)",
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceFolder}/build/CxxTemplate",
-            "args": [],
-            "stopAtEntry": false,
             "cwd": "${workspaceFolder}/build",
-            "environment": [],
-            "externalConsole": false,
             "MIMode": "gdb",
+            "stopAtEntry": true,
             "setupCommands": [
                 {
                     "description": "Enable elegant pretty-printing for gdb standard library types",
                     "text": "-enable-pretty-printing",
                     "ignoreFailures": true
-                },
-                {
-                    "description": "Set safe instruction decoding architecture layout to Intel syntax",
-                    "text": "set disassembly-flavor intel",
-                    "ignoreFailures": true
                 }
             ],
-            "preLaunchTask": "CMake: Full Pipeline (Generate + Build)"
+            "preLaunchTask": "Pipeline: Build Debug Target"
         }
     ]
 }

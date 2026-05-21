@@ -1,54 +1,60 @@
 {
     "version": "2.0.0",
     "tasks": [
+        // ==========================================================
+        // PHASE 1: MODERN GENERATION TASKS (MUTUALLY EXCLUSIVE)
+        // ==========================================================
         {
-            "label": "1. CMake: Generation Phase",
+            "label": "1a. CMake Gen: Debug",
             "type": "shell",
-            // Modern alternative: "cmake -S . -B build -G Ninja"
-            "command": "cmake -Bbuild -H. -GNinja",
-            "options": {
-                "cwd": "${workspaceFolder}"
-            },
+            // Modern Syntax: -S explicitly binds source, -B binds destination
+            "command": "cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Debug",
+            "options": { "cwd": "${workspaceFolder}" },
             "problemMatcher": [],
-            "presentation": {
-                "echo": true,
-                "reveal": "always",
-                "focus": false,
-                "panel": "shared",
-                "showReuseMessage": false,
-                "clear": true
-            }
+            "presentation": { "echo": true, "clear": true, "panel": "shared" }
         },
         {
-            "label": "2. Ninja: Compilation Phase",
+            "label": "1b. CMake Gen: Release",
+            "type": "shell",
+            "command": "cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release",
+            "options": { "cwd": "${workspaceFolder}" },
+            "problemMatcher": [],
+            "presentation": { "echo": true, "clear": true, "panel": "shared" }
+        },
+
+        // ==========================================================
+        // PHASE 2: SINGLE COMPILATION TASK (REUSED)
+        // ==========================================================
+        {
+            "label": "2. Ninja: Compile Executable",
             "type": "shell",
             "command": "ninja",
-            "options": {
-                "cwd": "${workspaceFolder}/build"
-            },
-            "problemMatcher": [
-                "$gcc"
-            ],
-            "presentation": {
-                "echo": true,
-                "reveal": "always",
-                "focus": false,
-                "panel": "shared",
-                "showReuseMessage": false,
-                "clear": false
-            }
+            "options": { "cwd": "${workspaceFolder}/build" },
+            "problemMatcher": ["$gcc"],
+            "presentation": { "echo": true, "panel": "shared", "clear": false }
         },
+
+        // ==========================================================
+        // PHASE 3: MASTER PIPELINES (THE ENTRY POINTS)
+        // ==========================================================
         {
-            "label": "CMake: Full Pipeline (Generate + Build)",
+            "label": "Pipeline: Build Debug Target",
             "dependsOrder": "sequence",
             "dependsOn": [
-                "1. CMake: Generation Phase",
-                "2. Ninja: Compilation Phase"
+                "1a. CMake Gen: Debug",
+                "2. Ninja: Compile Executable"
             ],
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            },
+            "group": { "kind": "build", "isDefault": true },
+            "problemMatcher": []
+        },
+        {
+            "label": "Pipeline: Build Release Target",
+            "dependsOrder": "sequence",
+            "dependsOn": [
+                "1b. CMake Gen: Release",
+                "2. Ninja: Compile Executable"
+            ],
+            "group": { "kind": "build" },
             "problemMatcher": []
         }
     ]
