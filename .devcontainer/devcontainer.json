@@ -1,0 +1,14 @@
+{
+    "name": "Advanced C++",
+    "build": {
+        "dockerfile": "Dockerfile",
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-vscode.cpptools"
+            ]
+        }
+    },
+    "postAttachCommand": "rm -f README.md; cp -f Codespace.md README.md"
+}

@@ -1,0 +1,8 @@
+{
+    "name": "advanced-cpp",
+    "version": "1.0.0",
+    "description": "Advanced C++ Labs",
+    "scripts": {
+        "start": "code -r ./Codespace.md"
+    }
+}
